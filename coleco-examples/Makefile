@@ -1,4 +1,4 @@
-SUBDIRS:= $(shell ls | egrep -v '^(CVS)$$')
+SUBDIRS:= $(shell ls | egrep -v '^(CVS)$$')sgm/sgmtest
 
 DATESTRING	:=	$(shell date +%Y)$(shell date +%m)$(shell date +%d)
 
