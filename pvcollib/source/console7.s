@@ -33,6 +33,7 @@
     .globl _sys_sgm_aycntl
     .globl _sys_sgm_get_ay8910
     .globl _sys_sgm_set_ay8910
+    .globl _sys_get_ay8910
 
     .area _DATA
 _sys_sgmok::
@@ -156,7 +157,7 @@ _ssqad99:
     pop		af
 	ret
 
-_sys_sgm_get_ay8910:
+_sys_get_ay8910:
     push af
     ld hl,#_sys_sgm_aycntl
     ld a, (hl)
@@ -183,6 +184,21 @@ _sys_sgm_set_ay8910:
     nop
     ld hl,#_sys_sgm_aycntl
     ld (hl), b
+    push bc
+    push de
+    ret
+
+_sys_sgm_get_ay8910:
+    pop de
+    pop bc
+    ld a, c
+    out (0x50), a
+    nop
+    nop
+    in a, (0x52)
+    nop
+    nop
+    ld l, a
     push bc
     push de
     ret

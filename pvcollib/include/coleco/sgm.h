@@ -62,13 +62,14 @@ void sys_sgminit(void);
  * \brief Read AY-3-8910 register value<br>
  * Read Value from register in sys_sgm_ayctrl, value returned<br>
 */
-void sys_sgm_get_ay8910(void);
+void sys_get_ay8910(void);
+u8 sys_sgm_get_ay8910(u8);
 
 /**
  * \fn void sys_sgmset_ay8910(reg, value)
  * \brief Set AY-3-8910 Registers to value<br>
  * Write value to reg where reg = 0-15<br>
 */
-void sys_sgm_set_ay8910(unsigned char, unsigned char);
+void sys_sgm_set_ay8910(u8, u8);
 
 #endif

@@ -15,22 +15,24 @@ void nmi (void) {
 }
 
 void show_ay8910(void) {
-	char i = 0; 
+	u8 i = 0; 
+	u8 val = 0;
 	score_t score = {0,0};
 
 	for (i = R0; i <= R15 ; i++) {
-		sys_sgm_aycntl = i;
-		sys_sgm_get_ay8910();
+		//sys_sgm_aycntl = i;
+		//sys_sgm_get_ay8910();
+		val = sys_sgm_get_ay8910(i);
 		score.lo = i;
 		vdp_putstring(4,6+i,"R");
 		vdp_putstring(5,6+i,sys_scostr(&score,2));
-		vdp_putstring(8,6+i,sys_str(sys_sgm_aycntl));
+		vdp_putstring(8,6+i,sys_str(val));
 	}
 }
 //---------------------------------------------------------------------------------
 void main (void) {
-	unsigned char i = 0;
-	unsigned char delay = 0;
+	u8 i = 0;
+	u8 delay = 0;
 	// Check if sgm is available
 	sys_sgminit();
 
