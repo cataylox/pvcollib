@@ -19,14 +19,14 @@ LIBOBJS :=	$(LIBDIRCVL)/collib.lib $(LIBDIRCVL)/crtcol.rel
 # the compiler executables
 #---------------------------------------------------------------------------------
 
-export CC	:=	$(PVCOLLIB_HOME)/devkitcol/bin/sdcc
-export AS	:=	$(PVCOLLIB_HOME)/devkitcol/bin/sdasz80
-export LD	:=	$(PVCOLLIB_HOME)/devkitcol/bin/sdcc
-export LO	:=	$(PVCOLLIB_HOME)/devkitcol/bin/sdobjcopy
-export LK :=	$(PVCOLLIB_HOME)/devkitcol/bin/sdcclib
+export CC	:=	sdcc
+export AS	:=	sdasz80
+export LD	:=	sdcc
+export LO	:=	sdobjcopy
+export LK	:=	sdcclib
 
-export GFXCONV	:=	$(PVCOLLIB_HOME)/devkitcol/tools/gfx2col
-export LDMEGA	:=	$(PVCOLLIB_HOME)/devkitcol/tools/cvmkcart
+export GFXCONV	:=	$(PVCOLLIB_HOME)/tools/gfx2col/gfx2col
+export LDMEGA	:=	$(PVCOLLIB_HOME)/tools/cvmkcart/cvmkcart
 
 #---------------------------------------------------------------------------------
 # Add default flag for compiling

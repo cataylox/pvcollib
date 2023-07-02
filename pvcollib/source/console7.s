@@ -30,11 +30,15 @@
 	; global from this module
 	.globl _sys_sgmok
 	.globl _sys_sgminit
+    .globl _sys_sgm_aycntl
+    .globl _sys_sgm_get_ay8910
+    .globl _sys_sgm_set_ay8910
 
     .area _DATA
 _sys_sgmok::
 	.ds    1
-		
+_sys_sgm_aycntl::
+    .ds     1
 	.area  _CODE
 		
 ;---------------------------------------------------------------------------------
@@ -151,3 +155,34 @@ _ssgad7:
 _ssqad99:
     pop		af
 	ret
+
+_sys_sgm_get_ay8910:
+    push af
+    ld hl,#_sys_sgm_aycntl
+    ld a, (hl)
+    out     (0x50), a
+    nop
+    nop
+    in      a, (0x52) 
+    nop
+    nop
+    ld (hl),a
+    pop af
+    ret
+
+_sys_sgm_set_ay8910:
+    pop de ; reg
+    pop bc ; data
+    ld a, c
+    out (0x50), a
+    nop
+    nop
+    ld a, b
+    out (0x51), a
+    nop
+    nop
+    ld hl,#_sys_sgm_aycntl
+    ld (hl), b
+    push bc
+    push de
+    ret

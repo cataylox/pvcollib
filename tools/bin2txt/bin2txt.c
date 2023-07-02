@@ -185,7 +185,7 @@ int main(int argc, char **arg)
 		fprintf(fpo, "// bin2txt converted binary data\n");
 		fprintf(fpo, "// binary file size : %d bytes\n",filesize);
 		fprintf(fpo, "//----------------------------------------------------------------------\n\n");
-		strupr(filebase);
+		toupper(filebase);
 		fprintf(fpo, "#ifndef %s_INC_\n", filebase);
 		fprintf(fpo, "#define %s_INC_\n\n", filebase);
 		fprintf(fpo, "#define %s_SIZE 0x%x\n\n", filebase,filesize);
@@ -231,7 +231,7 @@ int main(int argc, char **arg)
 		fprintf(fpo, "; binary file size : %d bytes\n",filesize);
 		fprintf(fpo, ";----------------------------------------------------------------------\n\n");
 		fprintf(fpo, ".section \".%s\" superfree\n\n", filebase);
-		strupr(filebase);
+		toupper(filebase);
 		fprintf(fpo, ".define %s_SIZE %xh\n\n", filebase,filesize);
 		fprintf(fpo, "%s:\n", filebase);
 		

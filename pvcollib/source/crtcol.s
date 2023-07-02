@@ -51,8 +51,8 @@
 	
 	.globl _snd_mute
 	
-	;.globl _mus_pointer
-	;.globl _mus_counter
+	.globl _mus_pointer
+	.globl _mus_counter
 
 	; global from C code
 	.globl _main
@@ -105,10 +105,10 @@ _vid_frsw::
 	.ds 1
 _snd_mute::
 	.ds 1
-;_mus_pointer:
-;    .ds 2
-;_mus_counter:
-;    .ds 2
+_mus_pointer:
+    .ds 2
+_mus_counter:
+    .ds 2
 	
 _spinner_1 = 0x73eb
 _spinner_2 = 0x73ec
